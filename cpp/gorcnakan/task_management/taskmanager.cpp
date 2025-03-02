@@ -1,8 +1,15 @@
 #include "taskmanager.h"
 
 TaskManager::TaskManager(const TaskManager& other) {
-    users = other.users;
-    loggedInUser = other.loggedInUser;
+    users.reserve(other.users.size());
+    for (const User* user : other.users) {
+        users.push_back(new User(*user));
+    }
+    if (other.loggedInUser) {
+        loggedInUser = new User(*other.loggedInUser);
+    } else {
+        loggedInUser = nullptr;
+    }
 }
 
 TaskManager::TaskManager(TaskManager&& other) noexcept {
