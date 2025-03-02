@@ -4,19 +4,21 @@
 #include <string>
 #include <vector>
 
+enum class Priority { Low = 1, Medium = 2, High = 3};
+
 class Task {
     private:
     std::string m_title;
     std::string m_description;
     std::string m_deadline;
     std::string m_category;
-    int m_priority;
+    Priority m_priority;
     bool m_completed;
     
 
     public:
 
-    Task(std::string title, std::string description, std::string deadline, std::string category, int priority);
+    Task(std::string title, std::string description, std::string deadline, std::string category, Priority priority);
 
     Task(const Task& other);
 
@@ -24,13 +26,13 @@ class Task {
     std::string getDescription() const;
     std::string getDeadline() const;
     std::string getCategory() const;
-    int getPriority() const;
+    Priority getPriority() const;
     bool isCompleted() const;
 
 
     void setCompleted(bool status);
     
-    void setPriority(int priority);
+    void setPriority(Priority priority);
 
     void setDeadline(const std::string& deadline);
 
