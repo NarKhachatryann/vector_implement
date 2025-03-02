@@ -53,7 +53,12 @@ void TaskManager::logout() {
 }
 
 void TaskManager::addTaskForUser(const Task& task) {
+    if(loggedInUser)
     loggedInUser->addTask(new Task(task));
+    else
+    {
+        std::cout << "No user is logged in." << std::endl;
+    }
 }
 
 void TaskManager::deleteTaskForUser(const std::string& title) {
