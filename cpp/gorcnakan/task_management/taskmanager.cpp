@@ -14,7 +14,8 @@ TaskManager::TaskManager(const TaskManager& other) {
 
 TaskManager::TaskManager(TaskManager&& other) noexcept {
     users = std::move(other.users);
-    loggedInUser = other.loggedInUser;
+    loggedInUser = std::move(other.loggedInUser);
+    other.users.clear();
     other.loggedInUser = nullptr;
 }
 
