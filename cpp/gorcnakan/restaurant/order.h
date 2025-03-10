@@ -18,7 +18,7 @@ class Order {
         Order& operator=(const Order& other);
         Order(Order&& other) noexcept;
         Order& operator=(Order&& other) noexcept;
-        ~Order() = default;
+        ~Order();
         void addDish(Dish* dish);
         void calculateTotal();
         void displayOrder() const;
