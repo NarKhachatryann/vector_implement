@@ -60,3 +60,13 @@ void Order::displayOrder() const {
     std::cout << "Total Price: " << totalPrice << std::endl;
     std::cout << "Number of Dishes Ordered: " << orderedDishes.size() << std::endl;
 }
+
+std::string Order::getOrder() const {
+    std::string order = "";
+    for (const auto& dish : orderedDishes) {
+        order += dish->getName() + " - " + std::to_string(dish->getPrice()) + "\n";
+    }
+    order += "Total Price: " + std::to_string(totalPrice) + "\n";
+    order += "Number of Dishes Ordered: " + std::to_string(orderedDishes.size()) + "\n";
+    return order;
+}

@@ -22,6 +22,7 @@ class Order {
         void addDish(Dish* dish);
         void calculateTotal();
         void displayOrder() const;
+        std::string getOrder() const;
     };
     
 #endif
