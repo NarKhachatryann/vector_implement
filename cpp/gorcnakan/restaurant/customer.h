@@ -17,7 +17,7 @@ public:
     Customer& operator=(const Customer& other);
     Customer(Customer&& other) noexcept;
     Customer& operator=(Customer&& other) noexcept;
-    ~Customer() = default;
+    ~Customer();
     void placeOrder(Order order);
     void viewOrderHistory() const;
     std::string getName() const;
